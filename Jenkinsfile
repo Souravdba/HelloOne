@@ -3,6 +3,7 @@ node{
    git 'https://github.com/Souravdba/HelloOne'
  }
  stage('Execute') {
+   sh 'chmod u+x ./A.sh'
    sh './A.sh'
  }
  
