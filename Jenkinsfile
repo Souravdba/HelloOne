@@ -3,7 +3,7 @@ node{
    git 'https://github.com/Souravdba/HelloOne'
  }
  stage('Execute') {
-   sh 'A.sh'
+   sh 'ls -l'
  }
  
  stage('Build status') {
