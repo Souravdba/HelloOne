@@ -12,7 +12,7 @@ node{
   sh "echo 'select * from emp' > ./aa.sql"
   retry(2) {
      if (retryAttempt > 0) {
-       sleep(1000 * 2 + 2000 * retryAttempt)
+       sleep(10 * 2 + 30 * retryAttempt)
      }
 
     retryAttempt = retryAttempt + 1
