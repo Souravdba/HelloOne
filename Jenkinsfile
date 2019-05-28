@@ -16,8 +16,8 @@ node{
      }
 
     retryAttempt = retryAttempt + 1
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Welcome123 -d TestDB -i ./aa.sql -o ./aaa.ou -e
-    cat ./aaa.ou
+    sh '/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Welcome123 -d TestDB -i ./aa.sql -o ./aaa.ou -e'
+    sh 'cat ./aaa.ou'
      }
  }
  
