@@ -9,14 +9,14 @@ node{
  }
  stage('Execute-test') {
   def retryAttempt = 0
-  sh "echo 'select * from location' > ./aa.sql"
+  sh "echo 'select * from emp' > ./aa.sql"
   retry(2) {
      if (retryAttempt > 0) {
        sleep(1000 * 2 + 2000 * retryAttempt)
      }
 
     retryAttempt = retryAttempt + 1
-    sh '/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P Welcome123 -d TestDB -i ./aa.sql -o ./aaa.ou -e'
+    sh '/opt/mssql-tools/bin/sqlcmd -S 192.168.99.100,5555 -U SA -P Password123 -d ABC -i ./aa.sql -o ./aaa.ou -e'
     sh 'cat ./aaa.ou'
      }
  }
