@@ -5,7 +5,13 @@ node{
  stage('Execute') {
    sh 'chmod u+x ./A.sh'
    sh './A.sh'
-   sh 'python ./pythontest.py'
+   sh """
+   virtualenv .env
+   . .env/bin/activate
+   pip install -r ./requirements.txt
+   python ./pythontest.py
+   deactivate
+   """
  }
  stage('Execute-test') {
   def retryAttempt = 0
