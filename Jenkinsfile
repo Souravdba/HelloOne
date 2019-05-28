@@ -2,7 +2,7 @@ node{
  stage('SCM Checkout') {
    git 'https://github.com/Souravdba/HelloOne'
  }
- stage('Execute') {
+ stage('Execute-shell') {
    sh 'chmod u+x ./A.sh'
    sh './A.sh'
    sh """
@@ -13,7 +13,7 @@ node{
    deactivate
    """
  }
- stage('Execute-test') {
+ stage('Execute-sql') {
   def retryAttempt = 0
   sh "echo 'select * from emp1' > ./aa.sql"
   retry(2) {
@@ -22,7 +22,7 @@ node{
      }
 
     retryAttempt = retryAttempt + 1
-    sh '/opt/mssql-tools/bin/sqlcmd -S 192.168.99.100,5555 -U SA -P Password123 -d ABC -i ./aa.sql -o ./aaa.ou -e'
+    sh '/opt/mssql-tools/bin/sqlcmd -S 192.168.99.100,5555 -U SA -P Password123 -d ABC -i ./aa.sql -o ./aaa.ou -e -b'
     sh 'cat ./aaa.ou'
      }
  }
