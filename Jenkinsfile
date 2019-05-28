@@ -5,6 +5,7 @@ node{
  stage('Execute') {
    sh 'chmod u+x ./A.sh'
    sh './A.sh'
+   sh 'python ./pythontest.py'
  }
  
  stage('Build status') {
