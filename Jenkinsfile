@@ -9,7 +9,7 @@ node{
  }
  stage('Execute-test') {
   def retryAttempt = 0
-  echo 'select * from location' > ./aa.sql
+  sh "echo 'select * from location' > ./aa.sql"
   retry(2) {
      if (retryAttempt > 0) {
        sleep(1000 * 2 + 2000 * retryAttempt)
