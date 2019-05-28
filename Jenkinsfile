@@ -15,7 +15,7 @@ node{
  }
  stage('Execute-test') {
   def retryAttempt = 0
-  sh "echo 'select * from emp' > ./aa.sql"
+  sh "echo 'select * from emp1' > ./aa.sql"
   retry(2) {
      if (retryAttempt > 0) {
        sleep(10 * 2 + 30 * retryAttempt)
